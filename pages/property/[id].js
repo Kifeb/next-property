@@ -7,8 +7,6 @@ import ImageScrollbar from "../../components/ImageScrollbar";
 import {fetchApi, baseUrl} from "../../utils/fetchApi"
 
 const PropertyDetails = ({propertyDetails: {price, rentFrequency, rooms, title, baths, area, agency, isVerified, description, type, purpose, furnishingStatus, amenities, photos }}) => {
-    console.log(amenities[0].amenities[1].text);
-
   return (
     <Box maxWidth="1000px" margin="auto" p="4">
         {photos && <ImageScrollbar data={photos}/>}
