@@ -8,10 +8,10 @@ import SearchFilter from "../components/SearchFilter";
 import noresult from "../assets/img/noresult.svg"
 import { baseUrl, fetchApi } from "../utils/fetchApi";
 
-const search = ({properties}) => {
+const Search = ({properties}) => {
 
-    const [searchFilters, setSearchFilters] = useState(false);
-    const router = useRouter();
+    const [SearchFilters, SetSearchFilters] = useState(false);
+    const Router = useRouter();
 
   return (
     <Box>
@@ -24,14 +24,14 @@ const search = ({properties}) => {
             fontWeight="black"
             justifyContent="center"
             alignItems="center"
-            onClick={() => setSearchFilters(!searchFilters)}
+            onClick={() => SetSearchFilters(!SearchFilters)}
         >
             <Text>Search Property By Filter</Text>
             <Icon paddingLeft="2" w="7" as={BsFilter}></Icon>
         </Flex>
-        {searchFilters && <SearchFilter />}
+        {SearchFilters && <SearchFilter />}
         <Text fontSize="2xl" p="4" fontWeight="bold">
-            Properties {router.query.purpose}
+            Properties {Router.query.purpose}
         </Text>
         <Flex flexWrap="wrap">
             {properties.map((property) => <Property property={property} key={property.id} />)}
@@ -67,4 +67,4 @@ export async function getServerSideProps({ query }) {
     };
   }
 
-export default search
+export default Search
